@@ -1,0 +1,48 @@
+# Altium generated files
+History/
+__Previews/
+Project Logs for */
+Project Outputs for */
+*.PrjPcbStructure
+*.PrjPcbStructurePreview
+*.SchDocPreview
+*.PcbDocPreview
+*.DsnWrk
+*.LOG
+*.log
+*.REP
+*.rep
+*.RUL
+*.rul
+*.bak
+*.~*
+*.$$$
+*.Zip
+*.zip
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Firmware build outputs
+build/
+dist/
+Debug/
+Release/
+*.o
+*.obj
+*.elf
+*.hex
+*.map
+*.bin
+
+# Secrets and local configuration
+.env
+*.key
+*.pem
