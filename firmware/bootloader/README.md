@@ -48,7 +48,7 @@ A remote software-only review cannot prove oscillator startup, USB signal integr
 | Application EBASE/code start | `0x9D009000` |
 | SRAM | 16 KiB; first 16 bytes reserved for boot request |
 
-The LED and force-boot switch GPIOs could not be read reliably from the supplied schematic image. They are therefore disabled by default in `source_overrides/bootloader_board.h`. Map them to actual MCC-generated pin aliases before hardware validation.
+Optional status LED and force-boot switch support are disabled by default. Enable these features in `source_overrides\/bootloader_board.h` after assigning their MCC-generated pin aliases.
 
 ## Folder layout
 
