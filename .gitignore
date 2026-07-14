@@ -46,3 +46,13 @@ Release/
 .env
 *.key
 *.pem
+
+# MPLAB X / XC32 generated files
+**/nbproject/private/
+**/nbproject/Package-*.bash
+**/.generated_files/
+*.d
+*.p1
+*.pre
+*.lst
+*.sym

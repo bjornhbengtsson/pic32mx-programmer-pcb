@@ -1,0 +1,18 @@
+* text=auto
+
+*.md text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.py text eol=lf
+*.ps1 text eol=crlf
+
+*.PcbDoc binary
+*.SchDoc binary
+*.PcbLib binary
+*.SchLib binary
+*.SCHLIB binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.step binary

@@ -98,7 +98,7 @@ pic32mx-programmer-pcb/
 
 ## Manufacturing
 
-The design is intended for SMT assembly using the ASU Polytechnic manufacturing line. Fabrication outputs, BOM files, placement files, assembly drawings, and test documentation will be added as the project is finalized.
+The design is intended for SMT assembly using the ASU Polytechnic manufacturing line. Gerber and drill outputs, a BOM, assembly drawings, a schematic PDF, and a STEP model are included. Placement files and test documentation will be added as the project is finalized.
 
 ## Project Status
 
