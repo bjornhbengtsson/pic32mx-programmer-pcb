@@ -1,0 +1,15 @@
+test_application_bootloader_overlap_fails ... ok
+test_application_config_words_fail ... ok
+test_bad_checksum ... ok
+test_bootloader_overlap_fails ... ok
+test_valid_application ... ok
+test_valid_bootloader ... ok
+test_virtual_alias_maps_to_physical ... ok
+
+Ran 7 Python tests: PASS
+
+C host compile command:
+/usr/bin/gcc -std=c11 -Wall -Wextra -Werror -Itests/mocks -Isource_overrides source_overrides/bootloader_app.c tests/test_bootloader_app_host.c
+
+C trigger test: PASS
+Package-level host checks: PASS

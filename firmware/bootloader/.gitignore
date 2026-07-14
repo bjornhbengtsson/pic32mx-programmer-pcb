@@ -1,0 +1,15 @@
+# MPLAB X local/private files
+**/nbproject/private/
+**/build/
+**/debug/
+**/.generated_files/
+**/.cache/
+
+# Keep production artifacts only when intentionally released
+**/dist/**/*.elf
+**/dist/**/*.map
+
+# Test outputs
+tests/.bootloader_app_host_test
+__pycache__/
+*.pyc

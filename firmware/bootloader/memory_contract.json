@@ -1,0 +1,46 @@
+{
+  "device": "PIC32MX534F064H",
+  "program_flash": {
+    "physical_start": "0x1D000000",
+    "virtual_cached_start": "0x9D000000",
+    "length_bytes": 65536,
+    "end_exclusive": "0x1D010000"
+  },
+  "boot_flash": {
+    "physical_start": "0x1FC00000",
+    "length_bytes": 12288,
+    "end_exclusive": "0x1FC03000"
+  },
+  "bootloader": {
+    "physical_start": "0x1D000000",
+    "virtual_start": "0x9D000000",
+    "length_bytes": 32768,
+    "physical_end_exclusive": "0x1D008000"
+  },
+  "application": {
+    "download_physical_start": "0x1D008000",
+    "jump_virtual_address": "0x9D008000",
+    "reset_uncached_alias": "0xBD008000",
+    "ebase_virtual_address": "0x9D009000",
+    "normal_code_length_bytes": 28672,
+    "physical_end_exclusive": "0x1D010000"
+  },
+  "sram": {
+    "uncached_start": "0xA0000000",
+    "length_bytes": 16384,
+    "trigger_length_bytes": 16,
+    "usable_start": "0xA0000010",
+    "usable_length_bytes": 16368
+  },
+  "nvm_geometry": {
+    "row_words": 128,
+    "row_bytes": 512,
+    "erase_page_words": 1024,
+    "erase_page_bytes": 4096
+  },
+  "usb": {
+    "vid": "0x04D8",
+    "pid": "0x003C"
+  },
+  "boot_request_pattern": "0x5048434D"
+}
