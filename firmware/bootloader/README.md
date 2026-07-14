@@ -28,7 +28,7 @@ Still required before calling the firmware production-ready:
 5. Program and test a real MCU in the clamshell fixture.
 6. Confirm USB enumeration and an application update through Unified Host.
 
-A remote software-only review cannot prove oscillator startup, USB signal integrity, socket contact, power integrity, or ICSP wiring on the physical PCB.
+This is a remote software-only review and thus cannot prove oscillator startup, USB signal integrity, socket contact, power integrity, or ICSP wiring on the physical PCB.
 
 ## Assumptions that must match the PCB
 
