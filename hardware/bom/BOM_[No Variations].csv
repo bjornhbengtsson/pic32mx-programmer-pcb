@@ -1,0 +1,22 @@
+﻿,Line #,Name,Description,Designator,Revision ID,Revision State,Revision Status,Quantity,Manufacturer 1,Manufacturer Part Number 1,Manufacturer Lifecycle 1,Supplier 1,Supplier Part Number 1,Supplier Unit Price 1,Supplier Subtotal 1
+,,"22pf, 10uf, 100nf, 2.2uf","Automotive Ceramic Capacitor, 1206, 100nF, 10%, X7R, 15%, 200V","C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C14, C15, C16, C18",CMP-04427-012685-1,New From Design,Up to date,16,KYOCERA AVX,12062C104K4T2A,Volume Production,Mouser,581-12062C104K4T2A,0.348,5.568
+,,4700pF,"Automotive Ceramic Capacitor, 1206, 100nF, 10%, X7R, 15%, 200V",C17,,Not managed,,1,,,,,,,
+,,HI1206P121R-10,Description,FP1,,Not managed,,1,,,,,,,
+,,Programmer Port,"THT Angled Pin Header WR-PHD, Pitch 2.54 mm, Single Row, 8 pins",J2,CMP-1502-01075-4,Released,Up to date,1,Wurth Elektronik,61300811021,Volume Production,DigiKey,732-5341-ND,0.75,0.75
+,,1-5,,J3,,Not managed,,1,,,,,,,
+,,6-10,,J4,,Not managed,,1,,,,,,,
+,,MIKROE-4247,Sockets & Adapters SOCKET mikroBUS 16 TH,J5,,Not managed,,1,,,,,,,
+,,68000-102HLF,"Male Header, Pitch 2.54 mm, 1 x 2 Position, Height 8.38 mm, Tail Length 2.41 mm, RoHS, Bulk",J6,CMP-2000-05666-1,Released,Up to date,1,Amphenol Communications Solutions,68000-102HLF,Volume Production,DigiKey,609-3500-ND,0.23,0.23
+,,LTST-C150EKT,Description,"LED1, LED2",,Not managed,,2,,,,,,,
+,,LTST-C230KGKT,LED GREEN CLEAR CHIP SMD,LED3,,Not managed,,1,,,,,,,
+,,"4K7, 100k, 10k, 1k, 470, 220, 27",4.7kΩ ±5% 0.25W 1206 Thick Film Chip Resistor AEC-Q200 compliant,"R1, R2, R4, R6, R7, R8, R9, R10, R11, R12, R13",CMP-26527-005426-1,New From Design,Up to date,11,Stackpole Electronics,RMCF1206JT4K70,Volume Production,Mouser,708-RMCF1206JT4K70,0.017,0.187
+,,300,300Ω ±5% 0.25W 1206 Thick Film Chip Resistor AEC-Q200 compliant,R15,CMP-26527-001830-1,New From Design,Up to date,1,Stackpole Electronics,RMCF1206JT300R,Volume Production,DigiKey,RMCF1206JT300RCT-ND,0.1,0.1
+,,60,"60 Ohms Â±10% 0.25W, 1/4W Chip Resistor 1206 (3216 Metric) Automotive AEC-Q200, Pulse Withstanding Thick Film","R16, R17",,Not managed,,2,,,,,,,
+,,PTS526 SM15 SMTR2 LFS,Description,"T1, T2",,Not managed,,2,,,,,,,
+,,GSPTS004602,"Tactile Switch SPST-NO Top Actuated Surface Mount 0.05A,12VDC ,-40C ~ 90C,""PTS636SK25FSMTR LFS""",T3,,Not managed,,1,,,,,,,
+,,PIC32MX534F064H-I/PT - Clamshell,Description,U1,,Not managed,,1,,,,,,,
+,,LD29080DT33R,800 mA fixed and adjustable output very low drop voltage regulator,U2,,Not managed,,1,,,,,,,
+,,MCP2561-E/SN,Description,U3,,Not managed,,1,,,,,,,
+,,32.7680KHz,Description,X2,,Not managed,,1,,,,,,,
+,,407F39E008M0000,"8 MHz Â±30ppm Crystal 20pF 60 Ohms 4-SMD, No Lead",X3,CMP-003-00030-1,Draft,Up to date,1,,,,,,,
+,,USB Conn,Right Angle Surface Mount Mount Female Type B USB Connector | Amphenol FCI (Amphenol CS) 10033526-N3212MLF,J1,,Not managed,,1,,,,,,,
