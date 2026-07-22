@@ -2,6 +2,9 @@
 
 A reusable socketed programmer, USB bootloader, firmware flashing, and hardware-validation platform for 64-pin PIC32MX microcontrollers.
 
+<img width="5712" height="4284" alt="IMG_6673" src="https://github.com/user-attachments/assets/822aa71b-fb72-4f4b-9033-89ce26ea6d32" />
+
+
 ## Overview
 
 This project provides a development and test platform for PIC32MX 64-pin MCUs without requiring the microcontroller to be permanently soldered to a target PCB. A clamshell test socket allows an MCU to be inserted, powered, programmed, tested, removed, and reused.
