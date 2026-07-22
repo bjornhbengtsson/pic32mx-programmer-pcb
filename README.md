@@ -2,8 +2,7 @@
 
 A reusable socketed programmer, USB bootloader, firmware flashing, and hardware-validation platform for 64-pin PIC32MX microcontrollers.
 
-<img width="5712" height="4284" alt="IMG_6673" src="https://github.com/user-attachments/assets/822aa71b-fb72-4f4b-9033-89ce26ea6d32" />
-
+<img width="1319" height="1086" alt="Programmer_Board_Product" src="https://github.com/user-attachments/assets/554a9d73-2a42-4f53-bddf-0b3701278511" />
 
 ## Overview
 
