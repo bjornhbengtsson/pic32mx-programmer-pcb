@@ -48,18 +48,24 @@ The ICSP interface exposes:
 ```text
 pic32mx-programmer-pcb/
 ├── README.md
+├── CONTRIBUTING.md
 ├── LICENSE
-├── .gitignore
 ├── docs/
+│   ├── PIC32MX_Programmer_PCB_Poster.pdf
+│   ├── PIC32MX_Project_Notes.pdf
+│   └── README.md
+├── firmware/
+│   ├── bootloader/
+│   └── README.md
 ├── hardware/
 │   ├── altium/
 │   ├── assembly/
 │   ├── bom/
-│   └── gerbers/
-├── firmware/
-│   ├── bootloader/
+│   ├── gerbers/
+│   ├── schematic/
+│   ├── step/
+│   └── README.md
 └── images/
-```
 
 ## Development Process
 
@@ -106,7 +112,7 @@ pic32mx-programmer-pcb/
 
 ## Manufacturing
 
-The PCB was manufactured by JLCPCP and hand assembled.,
+The PCB was manufactured by JLCPCB and hand assembled.,
 
 The design is also intended for SMT assembly using the ASU Polytechnic manufacturing line. Gerber and drill outputs, a BOM, assembly drawings, a schematic PDF, and a STEP model are included. Placement files and test documentation will be added as the project is finalized.
 
