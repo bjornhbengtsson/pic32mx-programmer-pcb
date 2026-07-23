@@ -25,7 +25,7 @@ The project was developed as an educational and research-oriented PCB platform u
 - ICSP programming and debugging
 - USB bootloader support
 - USB D+, D-, VBUS, and USB-ID connections
-- MCLR/reset validation
+- MCLR/reset circuitry
 - VCAP, oscillator, decoupling, and power-support circuitry
 - CAN communication interface
 - MikroBUS expansion socket
@@ -107,11 +107,15 @@ pic32mx-programmer-pcb/
 
 ## Manufacturing
 
-The design is intended for SMT assembly using the ASU Polytechnic manufacturing line. Gerber and drill outputs, a BOM, assembly drawings, a schematic PDF, and a STEP model are included. Placement files and test documentation will be added as the project is finalized.
+The PCB was manufactured by JLCPCP and hand assembled.,
+
+The design is also intended for SMT assembly using the ASU Polytechnic manufacturing line. Gerber and drill outputs, a BOM, assembly drawings, a schematic PDF, and a STEP model are included. Placement files and test documentation will be added as the project is finalized.
 
 ## Project Status
 
-**Current stage:** PCB design completed; manufacturing, assembly, and validation pending.
+Current stage: PCB manufactured, assembled, and successfully powered.
+
+Basic power validation has been completed. The next step is to establish ICSP communication with the PIC32MX534F064H and program an initial test application using MPLAB X or MPLAB IPE.
 
 ## Author
 
