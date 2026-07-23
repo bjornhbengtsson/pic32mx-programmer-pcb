@@ -85,18 +85,25 @@ pic32mx-programmer-pcb/
 - Meeting PCB fabrication constraints
 - Planning repeatable firmware and hardware validation
 
-## Planned Validation
+## Validation Status
 
-- [ ] Inspect power rails for shorts
-- [ ] Verify regulated supply voltages
-- [ ] Confirm MCLR behavior
-- [ ] Detect the MCU with MPLAB
-- [ ] Program a basic LED test
-- [ ] Validate oscillator operation
-- [ ] Validate USB enumeration
-- [ ] Flash firmware through the USB bootloader
-- [ ] Test CAN communication
-- [ ] Test MikroBUS and breakout connections
+### Completed
+
+- Manufactured and assembled the PCB
+- Inspected the power rails for shorts
+- Verified the regulated supply voltages
+- Successfully powered the assembled board
+
+### Remaining
+
+- Confirm MCLR behavior
+- Detect the MCU with MPLAB
+- Program a basic LED test
+- Validate oscillator operation
+- Validate USB enumeration
+- Flash firmware through the USB bootloader
+- Test CAN communication
+- Test MikroBUS and breakout connections
 
 ## Manufacturing
 
