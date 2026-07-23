@@ -17,7 +17,7 @@ The project was developed as an educational and research-oriented PCB platform u
 - **Architecture:** 32-bit PIC32MX
 - **Programming tools:** MPLAB PICkit 4 and MPLAB Snap
 
-> Compatibility with other 64-pin PIC32MX devices must be verified against their package pinout, power requirements, and peripheral mappings. Contact me if you'd like me to comission me to redesign for your MCU. bjorn.h.bengtsson@gmail.com
+> Compatibility with other 64-pin PIC32MX devices must be verified against their package pinout, power requirements, and peripheral mappings. Contact me if you would like to commission a version adapted for a different MCU. bjorn.h.bengtsson@gmail.com
 
 ## Main Features
 
@@ -128,6 +128,11 @@ Arizona State University
 ## Acknowledgments
 
 Special thanks to John T. Lewis, Billal Abulfotuh, and Brad Bengtsson for their support and guidance.
+
+## Custom Hardware Inquiries
+
+Contact me if you would like to commission a version of this programmer adapted for a different MCU, package, pinout, programming interface, or set of peripherals.
+- Contact: bjorn.h.bengtsson@gmail.com
 
 ## License
 
