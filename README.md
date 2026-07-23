@@ -58,7 +58,6 @@ pic32mx-programmer-pcb/
 │   └── gerbers/
 ├── firmware/
 │   ├── bootloader/
-│   └── examples/
 └── images/
 ```
 
