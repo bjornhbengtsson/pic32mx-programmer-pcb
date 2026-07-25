@@ -66,6 +66,7 @@ pic32mx-programmer-pcb/
 │   ├── step/
 │   └── README.md
 └── images/
+```
 
 ## Development Process
 
