@@ -4,6 +4,8 @@ A reusable socketed programmer, USB bootloader, firmware flashing, and hardware-
 
 <img width="1319" height="1086" alt="Programmer_Board_Product" src="https://github.com/user-attachments/assets/554a9d73-2a42-4f53-bddf-0b3701278511" />
 
+[BootLoader Board Poster V2.pdf](https://github.com/user-attachments/files/30480387/BootLoader.Board.Poster.V2.pdf)
+
 ## Overview
 
 This project provides a development and test platform for PIC32MX 64-pin MCUs without requiring the microcontroller to be permanently soldered to a target PCB. A clamshell test socket allows an MCU to be inserted, powered, programmed, tested, removed, and reused.
