@@ -85,7 +85,7 @@ generated_projects/
   README.md
 ```
 
-## Recommended workflow
+## Recommended workflow steps
 
 ### 1. Install the development tools
 
