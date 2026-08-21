@@ -4,8 +4,8 @@ A reusable socketed programmer, USB bootloader, firmware flashing, and hardware-
 
 <img width="1319" height="1086" alt="Programmer_Board_Product" src="https://github.com/user-attachments/assets/554a9d73-2a42-4f53-bddf-0b3701278511" />
 
-[BootLoader Board Poster V2.pdf](https://github.com/user-attachments/files/30480387/BootLoader.Board.Poster.V2.pdf)
-<img width="1152" height="1710" alt="image" src="https://github.com/user-attachments/assets/8fa8cbf1-6862-4f86-a741-3bc88c04b09b" />
+[Programmer_PCB_REACH.pdf](https://github.com/user-attachments/files/31288978/Programmer_PCB_REACH.pdf)
+<img width="681" height="1020" alt="image" src="https://github.com/user-attachments/assets/0632ea7a-b7b4-4309-9ef8-a7570b043c45" />
 
 
 ## Overview
