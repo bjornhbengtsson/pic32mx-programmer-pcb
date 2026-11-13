@@ -40,6 +40,9 @@ The chip has two programs on it:
 
 **Buttons:**
 
+![Board overview: RESET, T2 update button, LEDs, mini-USB](../lab-tech-guide/images/board-overview.jpg)
+
+
 | Button | Name on schematic | Use |
 |---|---|---|
 | **T2** | Update button | Hold during reset to enter update mode. |

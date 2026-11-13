@@ -79,18 +79,37 @@ PC"**. Click **More info** → **Run anyway**.
 
 ## Connect the hardware
 
+### Know the board
+
+![Board overview: J2 Programmer Port, RESET, T2 update button, LEDs, mini-USB](images/board-overview.jpg)
+
+Hold the board so the text reads normally: **RESET** bottom-left, the
+**mini-USB** socket bottom-right, the clamshell's hinge at the top.
+
+| Part | Where | What it's for |
+|---|---|---|
+| **J2 Programmer Port** | Left edge, 8 pins | The Snap plugs in here. Pin 1 (**MCLR**) is the **bottom** pin, next to RESET. |
+| **RESET (T3)** | Bottom-left | Restarts the chip. |
+| **T2** | Bottom, left of the LEDs | Update button (hold + RESET = update mode). |
+| **T1** | Bottom, right of the LEDs | **Not wired on this board revision. Don't use it.** |
+| **LED2 / LED1** | Bottom centre | LED2 steady = update mode. Both taking turns = LED test app. |
+| **J1 mini-USB** | Bottom-right | Power for the board, and USB to the PC. |
+| **3V power LED** | Top centre | On when the board has power. |
+
+### Plug things in
+
 ![MPLAB Snap on the Programmer Port, board powered by mini-USB](images/snap-on-board.jpg)
 
-1. **Snap → board.** Push the Snap's 8-pin connector straight onto the board's
-   **Programmer Port (J2)**, the 8-pin header on the left edge next to the
-   RESET button. Match the photo: the Snap lies **flat, label facing up**, with
-   its USB socket pointing **away** from the board. The Snap's ▼ arrow marks
-   pin 1 (MCLR) and must be at the same end as pin 1 of J2.
-   Push it fully on; a half-seated Snap is the most common cause of "device not
-   found".
+1. **Snap → board.** Push the Snap's 8-pin connector straight onto **J2**.
+   The Snap lies **flat, label facing up**, its USB socket pointing **away**
+   from the board, as in the photo. The J2 pins are labelled on the board;
+   the bottom one is **MCLR**, and the Snap's **▼ arrow (pin 1) must be at
+   that bottom end**, next to RESET.
+   Push it fully on. A half-seated Snap is the most common cause of "device
+   not found".
 2. **Snap → PC.** Micro-USB cable from the Snap to the PC. The Snap's light comes on.
-3. **Board → PC.** Mini-USB cable from the board (bottom-right connector) to the
-   **same PC**. The board's power LED comes on.
+3. **Board → PC.** Mini-USB cable from **J1** (bottom-right) to the **same PC**.
+   The **3V power** LED comes on.
 
    The board can also be powered from a USB wall charger, but then the tool
    cannot run its automatic USB check, so the PC is strongly preferred.
@@ -98,32 +117,27 @@ PC"**. Click **More info** → **Run anyway**.
 > **Never** turn on "power target from tool" in MPLAB IPE. The board powers
 > itself from its USB cable. The Snap only senses the voltage.
 
-> 📷 **Photo needed:** whole bench setup — PC, Snap with micro-USB, board with
-> mini-USB. Save as `images/bench-setup.jpg`.
-
 ---
 
 ## Placing a chip in the clamshell
 
-The chip only fits correctly one way round. Wrong orientation can damage the chip.
+The chip fits correctly only one way round. Getting it wrong can damage the chip.
+
+![Chip seated in the open clamshell, pin-1 dot bottom-left](images/chip-in-socket.jpg)
 
 1. **Unplug the board's USB cable first.** Never open the socket with power on.
-2. Open the clamshell lid.
-3. Find **pin 1** on the chip: a small round dot (dimple) in one corner of the top.
-4. Find the **pin-1 mark** on the socket (a dot, triangle or chamfered corner
-   moulded into the socket).
-5. Lay the chip in flat, **dot on the pin-1 mark**, with all four rows of legs
-   resting in the guides. Don't press on the legs.
-6. Close the lid and **latch it fully**. It should sit evenly.
+2. Open the clamshell lid. It hinges at the **top** of the socket.
+3. Find **pin 1** on the chip: a small round **dot** in one corner of the top.
+   With the "PIC32MX534F" text readable, the dot is at the **bottom-left**.
+4. Lay the chip in flat with the **dot in the bottom-left corner**, the corner
+   nearest the **T2** button and the **"1 2"** header label, with the text
+   reading the right way up. All four rows of legs rest in the guides. Don't
+   press on the legs.
+5. Close the lid and **latch it fully** (see the board photo above). It
+   should sit evenly.
 
-Handle chips by the edges with tweezers or a vacuum pen. Bent legs = "device
-not found".
-
-> 📷 **Photos needed:**
-> - `images/chip-pin1.jpg`: close-up of a chip showing the pin-1 dot
-> - `images/socket-pin1.jpg`: open socket, pin-1 mark circled
-> - `images/chip-in-socket.jpg`: chip seated correctly, lid open
-> - `images/lid-latched.jpg`: lid closed and latched
+Handle chips by the edges with tweezers or a vacuum pen. Bent legs mean
+"device not found".
 
 ---
 
@@ -203,8 +217,6 @@ it → app runs.
 Do this for the first chip of each session. If it passes, mode 1 is enough for
 the rest of the batch.
 
-> 📷 **Photo needed:** `images/led-test.jpg` — LED1 and LED2 blinking (or a
-> short GIF), and `images/update-mode-led2.jpg` — LED2 on steady.
 
 To test the **USB update path** too (bootloader receives an app over USB), use
 [Part 2, Task 2](../team-guide/README.md#task-2-put-new-firmware-on-the-board)
