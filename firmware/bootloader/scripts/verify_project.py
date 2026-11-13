@@ -128,10 +128,28 @@ def verify_bootloader(root: Path) -> dict:
         ["UPLLEN=ON", "UPLLEN = ON"],
         "USB PLL enable setting not found"
     )
+    # On PIC32MX5xx the USB PLL is fed only by the primary oscillator. MCC's
+    # default (FNOSC = FRCPLL, POSCMOD = OFF) builds and programs fine but USB
+    # never enumerates. Found on hardware 2026-11-13.
     require_any(
         errors, text,
-        ["ICESEL=ICS_PGx1", "ICESEL = ICS_PGx1"],
-        "PGEC1/PGED1 ICESEL setting not found"
+        ["FNOSC=PRIPLL", "FNOSC = PRIPLL"],
+        "FNOSC = PRIPLL not found; USB needs the 8 MHz crystal (primary oscillator)"
+    )
+    require_any(
+        errors, text,
+        ["POSCMOD=HS", "POSCMOD = HS"],
+        "POSCMOD = HS not found; USB needs the 8 MHz crystal running"
+    )
+    c = compact(text)
+    if "fnosc=frcpll" in c or "poscmod=off" in c:
+        errors.append(
+            "FNOSC = FRCPLL or POSCMOD = OFF found; the USB PLL has no clock source with these settings"
+        )
+    require_any(
+        errors, text,
+        ["ICESEL=ICS_PGx2", "ICESEL = ICS_PGx2"],
+        "PGEC2/PGED2 ICESEL setting not found (board J2 uses RB6/RB7)"
     )
     warn_any(
         warnings, text,
@@ -171,12 +189,18 @@ def verify_application(root: Path) -> dict:
          "_ebase_address = 0x9D009000"],
         "application EBASE 0x9D009000 not found"
     )
-    require_any(
-        errors, text,
-        ["ORIGIN=0x9D009000,LENGTH=0x7000",
-         "ORIGIN=0x9D009000,LENGTH=28672"],
-        "application normal-code region 0x9D009000/0x7000 not found"
-    )
+    # Accept either one 0x9D009000/0x7000 code region (MCC style) or the split
+    # layout used by firmware/test_app: vectors 0x9D009000/0x1000 + code
+    # 0x9D00A000/0x6000. Both cover exactly 0x9D009000..0x9D00FFFF.
+    c = compact(text)
+    single = any(compact(s) in c for s in (
+        "ORIGIN=0x9D009000,LENGTH=0x7000", "ORIGIN=0x9D009000,LENGTH=28672"))
+    split = (compact("ORIGIN=0x9D009000,LENGTH=0x1000") in c
+             and compact("ORIGIN=0x9D00A000,LENGTH=0x6000") in c)
+    if not (single or split):
+        errors.append(
+            "application normal-code region 0x9D009000/0x7000 (or 0x9D009000/0x1000 + 0x9D00A000/0x6000) not found"
+        )
     require_any(
         errors, text,
         ["ORIGIN=0xBD008000,LENGTH=0x490"],

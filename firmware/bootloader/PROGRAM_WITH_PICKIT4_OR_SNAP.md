@@ -77,6 +77,26 @@ The script uses:
 
 Run the installed `ipecmd.exe -?` and inspect MPLAB X's local **Readme for IPECMD** if a newer IPE version changes an option.
 
+## Troubleshooting MPLAB IPE with the Snap
+
+Seen on MPLAB IPE v6.30 with the Snap on 2026-11-13:
+
+- **`You have entered an invalid value (null) for the Voltage Level on the Snap
+  Power property page`, then `Connection Failed`.** The Snap cannot power a
+  target, so its Power page has no voltage box, but IPE still checks a stored
+  value. Try **Power → Reset to defaults**, then Connect. If the GUI still
+  refuses, use the command line, which ignores this setting:
+  `ipecmd.exe -TPSNAP -P32MX534F064H -I` reads the device ID. On the first
+  command-line connection IPE may update the Snap firmware (02.04.10 →
+  02.04.55); let it finish.
+- **`Erase Target Failed` / `Programming Target Failed` from `ipecmd` while the
+  IPE window is open.** The GUI holds the Snap. Close IPE, or use only the GUI.
+- **`*** Hold In Reset mode is enabled ***` after programming.** The Snap is
+  holding MCLR low, so nothing runs and USB will not enumerate. Click
+  **Disconnect** (or Settings → Release from Reset) before testing USB.
+- A device ID shown as `0x4400000` with revision `0xA2` is normal for this part;
+  IPE masks the revision bits.
+
 ## Programmer power
 
 The script intentionally does not request target power. The PCB should be powered from a regulated 3.3 V source, and TVDD should be used for voltage sensing.

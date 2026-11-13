@@ -38,7 +38,7 @@ This is a remote software-only review and thus cannot prove oscillator startup, 
 | Primary oscillator | 8 MHz crystal on OSC1/OSC2 |
 | CPU clock | 80 MHz |
 | USB clock | 48 MHz from USB PLL |
-| ICSP channel | PGEC1/PGED1 |
+| ICSP channel | PGEC2/PGED2 (RB6/RB7, MCU pins 17/18) |
 | Target voltage | 3.3 V |
 | Initial programmer | PICkit 4 or MPLAB Snap |
 | USB mode | Full-speed USB Device HID |
@@ -215,5 +215,5 @@ SRAM: 16 KiB
 - Prefer external regulated 3.3 V power and use the programmer's TVDD pin as voltage sense.
 - Do not enable programmer target power while USB or another 3.3 V source is already powering the board.
 - Pin 1 orientation on the ICSP cable and the clamshell socket must be verified before insertion.
-- Do not place capacitors, LEDs, pull-ups, or other loads on PGEC1/PGED1.
+- Do not place capacitors, LEDs, pull-ups, or other loads on PGEC2/PGED2.
 - Keep code protection and write protection off until development and recovery testing are complete.

@@ -28,8 +28,8 @@ For this package, the important dedicated connections include:
 | MCU pin | Signal |
 |---:|---|
 | 7 | MCLR |
-| 15 | PGEC1 |
-| 16 | PGED1 |
+| 17 | PGEC2 (RB6), ICSP clock |
+| 18 | PGED2 (RB7), ICSP data |
 | 19 | AVDD |
 | 20 | AVSS |
 | 33 | USBID |
@@ -83,14 +83,14 @@ Avoid a large capacitor directly on MCLR during programming. It can prevent the 
 | 1 | VPP / MCLR | MCU pin 7, MCLR |
 | 2 | TVDD / target VDD sense | Board 3.3 V |
 | 3 | VSS | Board ground |
-| 4 | PGD / ICSPDAT | MCU pin 16, PGED1 |
-| 5 | PGC / ICSPCLK | MCU pin 15, PGEC1 |
+| 4 | PGD / ICSPDAT | MCU pin 18, PGED2 (RB7) |
+| 5 | PGC / ICSPCLK | MCU pin 17, PGEC2 (RB6) |
 | 6 | AUX | Leave unconnected for normal ICSP |
 
 The project configuration must use:
 
 ```c
-#pragma config ICESEL = ICS_PGx1
+#pragma config ICESEL = ICS_PGx2
 ```
 
 ### MPLAB Snap eight-pin connector
@@ -100,8 +100,8 @@ The project configuration must use:
 | 1 | TVPP/MCLR | MCLR |
 | 2 | TVDD | 3.3 V sense |
 | 3 | GND | Ground |
-| 4 | PGD | PGED1 |
-| 5 | PGC | PGEC1 |
+| 4 | PGD | PGED2 (RB7) |
+| 5 | PGC | PGEC2 (RB6) |
 | 6 | AUX | Normally NC |
 | 7 | TDI | NC unless using JTAG |
 | 8 | TMS | NC unless using JTAG |
@@ -112,7 +112,7 @@ Use its standard ICSP signals in the same order for the first six positions. Ver
 
 ## 6. ICSP loading rules
 
-PGEC1 and PGED1 should be:
+PGEC2 and PGED2 should be:
 
 - short and directly routed
 - free of capacitors
@@ -141,8 +141,8 @@ With no MCU or with power removed:
 
 - [ ] No short between 3.3 V and GND.
 - [ ] ICSP pin 1 reaches MCLR.
-- [ ] ICSP pin 4 reaches PGED1.
-- [ ] ICSP pin 5 reaches PGEC1.
+- [ ] ICSP pin 4 reaches PGED2 (MCU pin 18).
+- [ ] ICSP pin 5 reaches PGEC2 (MCU pin 17).
 - [ ] Header pin 2 reaches 3.3 V.
 - [ ] Header pin 3 reaches GND.
 - [ ] D+ and D- are not swapped.

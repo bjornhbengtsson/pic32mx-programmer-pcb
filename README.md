@@ -104,17 +104,19 @@ pic32mx-programmer-pcb/
 - Inspected the power rails for shorts
 - Verified the regulated supply voltages
 - Successfully powered the assembled board
+- Confirmed MCLR behavior and ICSP through the Programmer Port (MPLAB Snap)
+- Detected the PIC32MX534F064H with MPLAB IPE
+- Programmed and verified the USB HID bootloader over ICSP
+- Validated oscillator operation (8 MHz crystal + PLL; inferred from USB enumeration)
+- Validated USB enumeration as a HID device
+- Flashed an LED test application through the USB bootloader with Microchip Unified Host
+- Ran the LED test (LED1/LED2 alternate)
 
 ### Remaining
 
-- Confirm MCLR behavior
-- Detect the MCU with MPLAB
-- Program a basic LED test
-- Validate oscillator operation
-- Validate USB enumeration
-- Flash firmware through the USB bootloader
 - Test CAN communication
 - Test MikroBUS and breakout connections
+- Finish the bootloader validation items in [`firmware/bootloader/VALIDATION_STATUS.md`](firmware/bootloader/VALIDATION_STATUS.md)
 
 ## Manufacturing
 
@@ -124,9 +126,9 @@ The design is also intended for SMT assembly using the ASU Polytechnic manufactu
 
 ## Project Status
 
-Current stage: PCB manufactured, assembled, and successfully powered.
+Current stage: board brought up end to end (November 2026).
 
-Basic power validation has been completed. The next step is to establish ICSP communication with the PIC32MX534F064H and program an initial test application using MPLAB X or MPLAB IPE.
+The PIC32MX534F064H programs over ICSP, runs the USB HID bootloader from the 8 MHz crystal, enumerates over USB, and accepts and runs an application uploaded over USB. Ready-to-flash images are in [`firmware/prebuilt/`](firmware/prebuilt/). Next: CAN, MikroBUS, and the remaining bootloader entry-path tests.
 
 ## Author
 
