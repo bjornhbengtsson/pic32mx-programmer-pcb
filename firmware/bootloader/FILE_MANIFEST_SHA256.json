@@ -9,7 +9,7 @@
   "REFERENCES.md": "a6476724a9311367351293b5eb8491919f913e538452e2085e4fc62c67a8db57",
   "THIRD_PARTY_NOTICES.md": "cee808ceff900f802d0bc202406594b334a1260f7d28ed93adceacabcce660e8",
   "USB_UPDATE_AND_VALIDATION.md": "3cef93bc2de0889183d4e25333fa38c08545616bc519edcd8a33db679b3c1dce",
-  "VALIDATION_STATUS.md": "522ac70ccbad6188a01b5a3bc6c1f293223bd8427610d61044c73b64a6ba28e7",
+  "VALIDATION_STATUS.md": "98a7407646e2dacc1a07bd8df18044155e195fefa12ac8d24444c62455d2b8c6",
   "generated_projects/README.md": "1bb1bd78b6ee9d62c7b70b96ef7a541e220ce109d13d6042f5e5cd3ddc41da4a",
   "memory_contract.json": "af26d266dcefb44aaa48495cfcdfb2746ae958c54aeb40b4c46bf6e2ac0dcf2c",
   "scripts/__pycache__/hex_layout.cpython-313.pyc": "f41fbb4d7c39290ff9ef545784fd05ae404982841b5c8e35079fd32bd9a9e41d",
@@ -18,8 +18,8 @@
   "scripts/program_bootloader.ps1": "9bc38588d5be50ad31bd3a5585d8ba36acd2e98d049b9f90ff9c78034e01742e",
   "scripts/run_host_checks.py": "4a48683a2d7fde39f2d5e278c03459842362b3e82b3acad6292a386f66cc2948",
   "scripts/verify_project.py": "3b4fbda1abf25891a44d130d69af3b1128d5055d7e8ce09fc6ae8e782a66e335",
-  "source_overrides/bootloader_app.c": "b6e6f5356843721798972c36f0db49752fa1cb28a7900f9c7435de2e7583f1de",
-  "source_overrides/bootloader_board.h": "3df6450a261487ddbfade9600f0a7874158b777611c2ae67495c3dd6e77e64bb",
+  "source_overrides/bootloader_app.c": "2ffb83cc55642f3e984cf87aae7a110d9716e300644bcb8923e26f0d6f35fe97",
+  "source_overrides/bootloader_board.h": "bfcfb4d08fb773ed29d25f60fcac9c31c247ab224b4dd0b46918e3a10825e578",
   "source_overrides/config_bits_8mhz.c": "4520a5e9e7a8516d0a4b7b9d4ac516cac0d67479fd4ca2b8da1339d3f0992126",
   "test_app_snippets/bootloader_request.c": "e94fdc6d74583b6e7dbb24c99d739867b78188f7c5aa6dda880f7e8fb6669a08",
   "test_app_snippets/bootloader_request.h": "43f27dce6cf26acc831378f3ff86f4129bc802d0b0c04acdb4198a71b9dd77a7",
@@ -28,6 +28,6 @@
   "tests/__pycache__/test_hex_layout.cpython-313.pyc": "5889e39995dc8f0bc08f92c8fa4043a5fb3e99b43cf929a5986d414932b9ebdc",
   "tests/mocks/app.h": "0ad95c2138783942e2cb31d2610fe053a74e55bef64ba5252f151c4c8d82b98b",
   "tests/mocks/definitions.h": "44b395305942458b8d1889621ace8f46de441bafb2e63591f997416f20415a18",
-  "tests/test_bootloader_app_host.c": "67bd9bc8bb8add3d98c2b93a0e2dd95b1a19166c0bdc2aa7494d20c07a4cc8b5",
+  "tests/test_bootloader_app_host.c": "e8a6ab8f4286d908a2cbc5710e60e9a5c15fbe4a7710bdb249e4f4cd666ed448",
   "tests/test_hex_layout.py": "0895dad1793df002559533f09c33cfccc3dc96398a0164069119f3e395255e88"
 }

@@ -19,3 +19,4 @@
 
 # Released firmware images: keep exact bytes so SHA-256 sums match
 firmware/prebuilt/*.hex binary
+*.cmd text eol=crlf

@@ -58,10 +58,15 @@ pic32mx-programmer-pcb/
 ├── docs/
 │   ├── PIC32MX_Programmer_PCB_Poster.pdf
 │   ├── PIC32MX_Project_Notes.pdf
+│   ├── team-guide/        ← start here: run and update the board
 │   └── README.md
 ├── firmware/
-│   ├── bootloader/
+│   ├── bootloader/        USB HID bootloader docs, overrides, checks
+│   ├── test_app/          LED test app loaded over USB
+│   ├── prebuilt/          ready-to-flash .hex files
 │   └── README.md
+├── tools/
+│   └── update-board/      "Update Board.cmd" launcher for Unified Host
 ├── hardware/
 │   ├── altium/
 │   ├── assembly/
@@ -128,7 +133,11 @@ The design is also intended for SMT assembly using the ASU Polytechnic manufactu
 
 Current stage: board brought up end to end (November 2026).
 
-The PIC32MX534F064H programs over ICSP, runs the USB HID bootloader from the 8 MHz crystal, enumerates over USB, and accepts and runs an application uploaded over USB. Ready-to-flash images are in [`firmware/prebuilt/`](firmware/prebuilt/). Next: CAN, MikroBUS, and the remaining bootloader entry-path tests.
+The PIC32MX534F064H programs over ICSP, runs the USB HID bootloader from the 8 MHz crystal, enumerates over USB, and accepts and runs an application uploaded over USB. Ready-to-flash images are in [`firmware/prebuilt/`](firmware/prebuilt/).
+
+**New to the board?** Start with the [team guide](docs/team-guide/README.md): how to run an app, how to put new firmware on over USB (hold **T2**, tap RESET, double-click `tools/update-board/Update Board.cmd`), and how to write your own app.
+
+Next: CAN, MikroBUS, and the app-requested bootloader entry test. Note: button T1 is not wired to the MCU on this revision; see [`hardware/README.md`](hardware/README.md).
 
 ## Author
 
