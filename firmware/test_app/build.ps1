@@ -6,7 +6,10 @@ param(
     [string]$Dfp     = "C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC32MX_DFP/1.6.369"
 )
 
-$ErrorActionPreference = "Stop"
+# XC32 prints informational lines on stderr ("Info: Loading file ..."). Windows
+# PowerShell 5.1 turns native stderr into errors, so do not use "Stop" here;
+# success is judged by each tool's exit code instead.
+$ErrorActionPreference = "Continue"
 Push-Location $PSScriptRoot
 try {
     & "$Xc32Bin\xc32-gcc.exe" -mprocessor=32MX534F064H "-mdfp=$Dfp" -O1 -Wall `

@@ -17,8 +17,8 @@ Also in `SHA256SUMS.txt`, which the Load Bootloader tool checks before it starts
 
 ```text
 040cf36edff104246af912b6ca4ac703bed97fc15ba48671ef1dea494fd72475  bootloader_pic32mx534.hex
-ef4000bb173f6373600ea198f1ccdc6527f0379c42a222daf8cb5b7459ae11b1  test_app_pic32mx534.hex
-23820f712cf140548a4b351959b59fcdb22ee6b5f1f356aef9cacbf679d2f89e  bootloader_plus_led_test.hex
+20940bf17e3fb0ef9cb225a2ecd5453db44cad667fc59f62d44ef9e1b559a778  test_app_pic32mx534.hex
+cf63785773a5f739884f023bf1843a71e8316df1bf70ba26dc3629bbeadf0a6e  bootloader_plus_led_test.hex
 ```
 
 ## Bootloader image
@@ -44,9 +44,10 @@ Earlier image (checksum `FF122BCA`, PID `0x0000`, no button) is superseded.
 
 ## Test application image
 
-LED1 (RD4) and LED2 (RD1) alternate every 250 ms. Built from
-`firmware/test_app`. This exact file was loaded over USB and ran on
-2026-11-13.
+LED1 (RD4) and LED2 (RD1) alternate every 250 ms. **Press T2 (RB0) while it
+runs** and it asks the bootloader for update mode (no RESET needed). Built from
+`firmware/test_app`. This exact file was loaded over USB and passed both
+behaviours on 2026-11-13.
 
 ## Check before flashing
 

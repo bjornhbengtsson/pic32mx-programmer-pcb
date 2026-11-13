@@ -130,6 +130,11 @@ you built in Task 3.
 
 ### Step 1: Put the board in update mode
 
+**If the LED test app is running** (LEDs taking turns), just **press T2**.
+The LEDs stop, LED2 stays on, and you're in update mode. Done, go to Step 2.
+
+Otherwise (any other app, or you're not sure):
+
 1. Plug the board's USB cable into the PC.
 2. **Press and hold T2.**
 3. **While holding T2, tap RESET (T3).**

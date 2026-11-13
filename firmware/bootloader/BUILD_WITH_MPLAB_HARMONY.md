@@ -180,10 +180,22 @@ ICESEL only affects hardware debugging. Programming through ICSP works on either
 ### A8. Generate and add the source override
 
 1. Click **Generate** in MCC.
-2. Replace generated `src/app.c` with `source_overrides/bootloader_app.c`.
-3. Copy `source_overrides/bootloader_board.h` beside it.
-4. Add `source_overrides/config_bits_8mhz.c` to the project.
-5. Keep the MCC-generated Harmony bootloader, USB, USBFS, NVM, startup, and linker source.
+2. **Run the patch script** (every time after Generate):
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File tools\mcc-patch\Apply-BootloaderPatches.ps1 -ProjectSrc <your project>\src
+   ```
+
+   It sets `FNOSC = PRIPLL`, `POSCMOD = HS`, `ICESEL = ICS_PGx2`, USB Product
+   ID `0x003C`, the 16-byte RAM reservation in `btl.ld`, copies
+   `source_overrides/bootloader_app.c` over `src/app.c` and
+   `bootloader_board.h` beside it, then runs `verify_project.py`. It is safe to
+   run repeatedly and prints `CHANGED` for anything MCC had reset.
+3. Keep the MCC-generated Harmony bootloader, USB, USBFS, NVM, startup, and linker source.
+
+Do **not** also add `source_overrides/config_bits_8mhz.c`: MCC already writes
+the configuration bits in `initialization.c`, and two definitions conflict.
+The file stays as a reference for the required values.
 
 The override implements:
 

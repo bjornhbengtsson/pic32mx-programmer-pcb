@@ -69,9 +69,9 @@ over UART: call `Bootloader_RequestAndReset()` from
 It writes a 4-word pattern to the first 16 bytes of RAM and resets; the
 bootloader sees it and stays in update mode.
 
-> Status: both the bootloader and the test app reserve that RAM area, and the
-> bootloader side passes its unit test, but this path has **not yet been tested
-> on hardware** (validation Test C).
+The test app in [`firmware/test_app/main.c`](../../firmware/test_app/main.c)
+already does this when T2 (RB0) is pressed: copy its
+`request_bootloader_and_reset()` function. Tested on hardware 2026-11-13.
 
 ## Quick check after assembly
 

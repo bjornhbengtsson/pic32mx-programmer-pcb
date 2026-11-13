@@ -194,7 +194,7 @@ the first chip of each session in mode 2 so the USB path is checked too.
 | What the chip does when the student powers their board | Starts in **update mode**, ready for code over USB. LED2 (RD1) lights. | **Blinks LEDs on RD4 and RD1** straight away. |
 | Good for | Students load their own code first thing | A quick "my soldering works" check |
 | Student board needs, to see anything | USB wired up (Windows shows the device) | LEDs on **RD4 and RD1** |
-| Student board needs, to load their own code over USB | USB wiring | USB wiring **and the RB0 update button** (hold it + reset). Without the button, only a Snap/PICkit can replace the LED app. |
+| Student board needs, to load their own code over USB | USB wiring | USB wiring **and the RB0 update button** (press it while the LED app runs, or hold it + reset). Without the button, only a Snap/PICkit can replace the LED app. |
 | Pins driven by the chip before the student's code runs | RD1 (only while in update mode) | RD4 and RD1, toggling forever |
 
 Decide this with the course staff before loading a batch, and tell students
