@@ -1,8 +1,13 @@
-# Team guide: running and updating the PIC32MX534 board
+# Part 2 — Team guide: running and updating the board over USB
 
 This guide is for anyone who needs to **run** code on the board or **put new
 code on it**. You do not need a programmer (Snap/PICkit) for any of this, only
 a USB cable.
+
+> **Before this:** the chip must already have the USB bootloader. Lab techs load
+> it with [Part 1 — Lab Tech guide](../lab-tech-guide/README.md).
+> Designing your own board for the chip? See
+> [Using the bootloader on your own board](own-board.md).
 
 - [How the board starts up](#how-the-board-starts-up)
 - [One-time PC setup](#one-time-pc-setup)
@@ -35,6 +40,9 @@ The chip has two programs on it:
 
 **Buttons:**
 
+![Board overview: RESET, T2 update button, LEDs, mini-USB](../lab-tech-guide/images/board-overview.jpg)
+
+
 | Button | Name on schematic | Use |
 |---|---|---|
 | **T2** | Update button | Hold during reset to enter update mode. |
@@ -48,20 +56,57 @@ The chip has two programs on it:
 
 ## One-time PC setup
 
-Do this once per PC.
+Do this once per PC. It takes about 20 minutes, mostly downloads.
 
-1. **Install MPLAB X IDE** (v6.30 was used) with **XC32** (v5.10 was used).
-   MPLAB X includes the Java runtime that Unified Host needs.
-2. **Install the Harmony 3 `bootloader` package**, which contains Unified Host:
-   open MPLAB X, open **MCC** (MPLAB Code Configurator) on any project, and
-   install the **bootloader** content from the Content Manager. Unified Host
-   ends up under `%USERPROFILE%\.mcc\harmony\content\bootloader\<version>\tools\`.
-3. **Get this repository** (clone or download ZIP) onto the PC.
-4. Optional: right-click [`tools/update-board/Update Board.cmd`](../../tools/update-board/)
-   → **Send to → Desktop (create shortcut)**.
+### 1. Install MPLAB X IDE
+
+Download **MPLAB X IDE** for Windows from
+<https://www.microchip.com/mplab/mplab-x-ide> (v6.30 was used) and install it.
+It includes the Java runtime that Unified Host needs.
+
+If you'll **build** your own apps (Task 3), also install **MPLAB XC32**
+(v5.10 was used) from <https://www.microchip.com/mplab/compilers>.
+
+### 2. Get Unified Host (the program that sends code to the board)
+
+Unified Host comes from Microchip's bootloader package. Easiest way:
+
+1. Open <https://github.com/Microchip-MPLAB-Harmony/bootloader>.
+2. Green **Code** button → **Download ZIP**.
+3. In **Downloads**, right-click the ZIP → **Extract All…** → extract into
+   your **Documents** folder.
+
+You should end up with a folder like
+`Documents\bootloader-master\...\tools\UnifiedHost-1.19.3\`.
+The Update Board tool finds it there automatically.
+
+(If you already use MCC in MPLAB X with the Harmony **bootloader** content
+installed, Unified Host is already on your PC and you can skip this step.)
+
+### 3. Download this repository
+
+1. Open <https://github.com/bjornhbengtsson/pic32mx-programmer-pcb>.
+2. Green **Code** button → **Download ZIP**.
+3. In **Downloads**, right-click the ZIP → **Properties** → if there's an
+   **Unblock** checkbox at the bottom, tick it → **OK**.
+4. Right-click the ZIP → **Extract All…** → choose `Documents` → **Extract**.
+
+> Always use the **extracted** folder. If you open the ZIP and run things from
+> inside it, they won't work, and the right-click menu won't have "Send to".
+> (Inside a ZIP, the details pane shows "Compressed size".)
+
+### 4. Put "Update Board" on your desktop
+
+1. In the extracted folder, open `tools\update-board\`.
+2. Right-click **Update Board** (type "Windows Command Script").
+3. Click **Show more options** at the bottom of the menu (or press **Shift+F10**).
+4. **Send to** → **Desktop (create shortcut)**.
+
+The first time you double-click it, Windows may show **"Windows protected your
+PC"**. Click **More info** → **Run anyway**.
 
 The USB bootloader uses the standard Windows HID driver, so there is **no
-driver to install**.
+driver to install** for the board.
 
 ---
 
@@ -97,11 +142,17 @@ you built in Task 3.
 
 ### Step 2: Open Unified Host
 
-Double-click **`tools/update-board/Update Board.cmd`**.
+Double-click **Update Board** on your desktop (or `tools\update-board\Update Board.cmd`).
 
-A black window checks that the board is in update mode, then opens Unified
-Host. If the board is not in update mode yet, the window tells you the button
-steps and waits.
+A black window checks three things and then opens Unified Host. Every line
+should say **OK**. It also repeats the Unified Host settings, so you don't need
+this guide open:
+
+![The Update Board window and Unified Host after a successful update](images/update-board-launcher.png)
+
+If the board isn't in update mode yet, the window shows the T2 + RESET steps
+and waits for the board. Once Unified Host is open you can close the black
+window.
 
 ### Step 3: Set up Unified Host
 

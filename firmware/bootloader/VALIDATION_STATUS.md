@@ -101,8 +101,11 @@ pin 12 (RB4). The T1 switch, its R1 pull-up, R15 and MCP2561 pin 5 (SPLIT) form
 a separate net. So T1 never reaches the MCU and RB4 floats, and pressing T1
 pulls the CAN transceiver's SPLIT pin to ground. On hardware, holding T1 had no
 effect. The bootloader uses **T2 (RB0, pin 16)** instead, which is wired as
-expected (R2 pull-up). Fix the `RB4/T1` net label in the next PCB revision and
-confirm with a continuity check from T1 to pin 12.
+expected (R2 pull-up).
+
+**Confirmed with a continuity meter (2026-11-13):** T2 pad → MCU pin 16 (RB0)
+beeps; T1 pad → MCU pin 12 (RB4) is open. Fix the `RB4/T1` net label in the
+next PCB revision.
 
 Open items:
 
