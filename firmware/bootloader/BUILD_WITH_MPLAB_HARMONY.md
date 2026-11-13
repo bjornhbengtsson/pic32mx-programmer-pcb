@@ -92,6 +92,17 @@ Copy `source_overrides/config_bits_8mhz.c` into the bootloader project. Do not k
 
 If the physical oscillator is not an 8 MHz crystal, stop and recalculate the PLL configuration.
 
+> **Check this before programming: MCC's default clock breaks USB.**
+> A freshly generated project for this device came out with `FNOSC = FRCPLL`
+> and `POSCMOD = OFF` in `src/config/default/initialization.c`. The PLL math
+> still gives 80 MHz, so it builds, programs and verifies, but on PIC32MX5xx
+> the USB PLL is fed **only** by the primary oscillator. With the crystal off,
+> USB never enumerates. Set the clock source to the primary oscillator (HS) with
+> PLL in MCC's Clock Configuration / Configuration Bits, and confirm the
+> generated file says `FNOSC = PRIPLL` and `POSCMOD = HS`.
+> `scripts/verify_project.py` now fails on the bad settings. (Found on hardware
+> 2026-11-13.)
+
 ### A5. Configure the USB descriptors
 
 Use:
@@ -104,6 +115,10 @@ EP0 size: 64 bytes
 ```
 
 The Unified Host setting must use Product ID `3C`.
+
+If the Product ID field is left blank, MCC generates `0x0000`. The device then
+enumerates as `VID_04D8&PID_0000`. Unified Host still connects (it shows
+`HID device PID: 00`), but set `0x003C` so the project matches this guide.
 
 ### A6. Configure bootloader memory
 
@@ -150,7 +165,7 @@ The first 16 bytes of SRAM are reserved for the boot request pattern.
 Required during development:
 
 ```c
-ICESEL = ICS_PGx1
+ICESEL = ICS_PGx2
 JTAGEN = OFF
 FWDTEN = OFF
 PWP    = OFF
@@ -158,7 +173,9 @@ BWP    = OFF
 CP     = OFF
 ```
 
-`ICESEL = ICS_PGx1` matches PGEC1/PGED1 on MCU pins 15/16.
+`ICESEL = ICS_PGx2` matches PGEC2/PGED2 on MCU pins 17/18 (RB6/RB7), which is what the board's Programmer Port (J2) is wired to. MCC's default for this device is already `ICS_PGx2`.
+
+ICESEL only affects hardware debugging. Programming through ICSP works on either pair.
 
 ### A8. Generate and add the source override
 

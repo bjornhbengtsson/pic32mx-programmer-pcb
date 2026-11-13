@@ -4,7 +4,7 @@
  *   8 MHz external crystal
  *   80 MHz SYSCLK
  *   48 MHz USB clock
- *   PGEC1/PGED1 ICSP
+ *   PGEC2/PGED2 ICSP (board Programmer Port J2 -> RB6/RB7, MCU pins 17/18)
  *
  * Add this file to the BOOTLOADER project only.
  * Remove/disable any duplicate configuration-bit source generated elsewhere.
@@ -32,7 +32,7 @@
 
 #pragma config DEBUG    = OFF
 #pragma config JTAGEN  = OFF
-#pragma config ICESEL  = ICS_PGx1
+#pragma config ICESEL  = ICS_PGx2
 
 #pragma config PWP      = OFF
 #pragma config BWP      = OFF

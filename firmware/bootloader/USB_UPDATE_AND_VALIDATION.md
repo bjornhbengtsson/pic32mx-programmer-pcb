@@ -150,7 +150,7 @@ Save:
 
 ### Programmer cannot detect device
 
-Check MCLR, TVDD, ground, PGEC1/PGED1 mapping, socket orientation, VCAP, and all power pins.
+Check MCLR, TVDD, ground, PGEC2/PGED2 mapping, socket orientation, VCAP, and all power pins.
 
 ### Programmer detects wrong/unstable voltage
 
