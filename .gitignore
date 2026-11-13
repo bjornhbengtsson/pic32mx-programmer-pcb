@@ -60,3 +60,5 @@ Release/
 # Released firmware images are tracked on purpose
 !firmware/prebuilt/*.hex
 firmware/test_app/memoryfile.xml
+logs/
+__pycache__/

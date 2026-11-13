@@ -6,15 +6,19 @@ Ready-to-flash images for the PIC32MX534F064H programmer PCB.
 |---|---|---|
 | `bootloader_pic32mx534.hex` | ICSP only: MPLAB Snap or PICkit 4 via MPLAB IPE | Programmed, verified and fully tested on hardware 2026-11-13 |
 | `test_app_pic32mx534.hex` | USB only: Microchip Unified Host | Loaded over USB and running on hardware 2026-11-13 |
+| `bootloader_plus_led_test.hex` | ICSP only | Bootloader + LED test app in one image, for the Lab Tech LED test. Built with `tools/load-bootloader/merge_hex.py`. Reload `bootloader_pic32mx534.hex` afterwards for chips going to students. |
 
 Never load the bootloader hex through Unified Host, and never load an
 application hex through ICSP on top of the bootloader without erasing first.
 
 ## SHA-256
 
+Also in `SHA256SUMS.txt`, which the Load Bootloader tool checks before it starts.
+
 ```text
 040cf36edff104246af912b6ca4ac703bed97fc15ba48671ef1dea494fd72475  bootloader_pic32mx534.hex
 ef4000bb173f6373600ea198f1ccdc6527f0379c42a222daf8cb5b7459ae11b1  test_app_pic32mx534.hex
+23820f712cf140548a4b351959b59fcdb22ee6b5f1f356aef9cacbf679d2f89e  bootloader_plus_led_test.hex
 ```
 
 ## Bootloader image

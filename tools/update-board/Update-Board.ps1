@@ -40,11 +40,21 @@ function Find-Java {
 }
 
 function Find-UnifiedHost {
+    # Installed by MCC, a Harmony 3 checkout, or Microchip's bootloader GitHub
+    # repo downloaded as a ZIP and extracted into Documents/Downloads/Desktop
+    # (folder usually named "bootloader-master" or "bootloader-<version>").
     $roots = @(
         "$env:USERPROFILE\.mcc\harmony\content\bootloader",
         "$env:USERPROFILE\Harmony3\bootloader",
         "C:\microchip\harmony\v3\bootloader"
-    ) | Where-Object { Test-Path $_ }
+    )
+    foreach ($place in @("$env:USERPROFILE\Documents", "$env:USERPROFILE\Downloads", "$env:USERPROFILE\Desktop")) {
+        if (Test-Path $place) {
+            $roots += Get-ChildItem $place -Directory -Filter "bootloader*" -Depth 1 -ErrorAction SilentlyContinue |
+                Select-Object -ExpandProperty FullName
+        }
+    }
+    $roots = $roots | Where-Object { Test-Path $_ }
     $jars = foreach ($r in $roots) {
         Get-ChildItem $r -Recurse -Depth 4 -Filter "UnifiedHost-*.jar" -ErrorAction SilentlyContinue
     }

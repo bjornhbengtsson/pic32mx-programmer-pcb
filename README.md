@@ -58,7 +58,8 @@ pic32mx-programmer-pcb/
 ├── docs/
 │   ├── PIC32MX_Programmer_PCB_Poster.pdf
 │   ├── PIC32MX_Project_Notes.pdf
-│   ├── team-guide/        ← start here: run and update the board
+│   ├── lab-tech-guide/    ← Part 1: load the bootloader onto chips
+│   ├── team-guide/        ← Part 2: run and update the board over USB
 │   └── README.md
 ├── firmware/
 │   ├── bootloader/        USB HID bootloader docs, overrides, checks
@@ -66,7 +67,8 @@ pic32mx-programmer-pcb/
 │   ├── prebuilt/          ready-to-flash .hex files
 │   └── README.md
 ├── tools/
-│   └── update-board/      "Update Board.cmd" launcher for Unified Host
+│   ├── load-bootloader/   "Load Bootloader.cmd": program + check chips with a Snap
+│   └── update-board/      "Update Board.cmd": launcher for Unified Host
 ├── hardware/
 │   ├── altium/
 │   ├── assembly/
@@ -135,7 +137,13 @@ Current stage: board brought up end to end (November 2026).
 
 The PIC32MX534F064H programs over ICSP, runs the USB HID bootloader from the 8 MHz crystal, enumerates over USB, and accepts and runs an application uploaded over USB. Ready-to-flash images are in [`firmware/prebuilt/`](firmware/prebuilt/).
 
-**New to the board?** Start with the [team guide](docs/team-guide/README.md): how to run an app, how to put new firmware on over USB (hold **T2**, tap RESET, double-click `tools/update-board/Update Board.cmd`), and how to write your own app.
+## Guides
+
+| Part | For | What it covers |
+|---|---|---|
+| [**Part 1 — Lab Tech guide**](docs/lab-tech-guide/README.md) | Lab leads / techs | Installing MPLAB, connecting the Snap and board, seating chips in the clamshell, loading the bootloader onto many chips with the **Load Bootloader** tool, the LED test, common errors. |
+| [**Part 2 — Team guide**](docs/team-guide/README.md) | Students / developers | Running the app, loading new code over USB (hold **T2**, tap RESET, **Update Board**), building your own app. |
+| [Using the bootloader on your own board](docs/team-guide/own-board.md) | Students designing boards | What a board needs (8 MHz crystal, USB, RB0 button, ICSP header) for the bootloader to work. |
 
 Next: CAN, MikroBUS, and the app-requested bootloader entry test. Note: button T1 is not wired to the MCU on this revision; see [`hardware/README.md`](hardware/README.md).
 
