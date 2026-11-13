@@ -68,6 +68,7 @@ pic32mx-programmer-pcb/
 │   └── README.md
 ├── tools/
 │   ├── load-bootloader/   "Load Bootloader.cmd": program + check chips with a Snap
+│   ├── mcc-patch/         re-apply bootloader settings after MCC Generate
 │   └── update-board/      "Update Board.cmd": launcher for Unified Host
 ├── hardware/
 │   ├── altium/

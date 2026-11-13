@@ -1,15 +1,24 @@
 # LED test application (USB-bootloader-aware)
 
 A minimal bare-metal application for proving the USB HID bootloader end to end.
-It alternates the board's two LEDs every 250 ms.
 
-| LED | Pin | Drive |
+- It alternates the board's two LEDs every 250 ms.
+- **Press T2 while it runs** and it hands over to the bootloader: it writes
+  the request pattern `0x5048434D` to the first 16 bytes of RAM and does a
+  software reset. The board comes back in update mode (LED2 steady, USB
+  `04D8:003C`), so you never need the RESET button to update it.
+
+| Signal | Pin | Notes |
 |---|---|---|
 | LED1 | RD4 | active-high, 4.7 kΩ |
 | LED2 | RD1 | active-high, 4.7 kΩ |
+| T2 | RB0 / AN0 | pressed = low; the app also turns on RB0's internal pull-up (CN2) so boards without a button there can't trigger it |
 
-This was the first application loaded over USB with Microchip Unified Host on
-2026-11-13, and it ran on the board.
+Copy `request_bootloader_and_reset()` from `main.c` into your own app to give it
+the same feature (any trigger works: a button, a UART command, etc.).
+
+Tested on the board 2026-11-13: loaded over USB with Unified Host, LEDs
+alternate, T2 press returns to update mode.
 
 ## Files
 

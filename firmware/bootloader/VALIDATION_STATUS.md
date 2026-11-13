@@ -38,7 +38,7 @@ Do not tag this firmware as hardware-validated until all items below are complet
 - [x] USB HID enumerates as `04D8:003C`
 - [x] Unified Host programs and verifies the test application
 - [x] Test application runs after reset and power cycle (USB unplugged and replugged)
-- [ ] RAM trigger returns to bootloader (both sides reserve the RAM; not yet tested with an app that requests it)
+- [x] RAM trigger returns to bootloader (test app: press T2 while running; 2026-11-13)
 - [x] Hardware switch trigger passes: **T2** (RB0) + RESET enters update mode. T1 cannot be used (see below).
 - [x] ICSP recovery passes: bootloader reflashed over an installed app, USB update mode returned
 
@@ -107,14 +107,17 @@ expected (R2 pull-up).
 beeps; T1 pad → MCU pin 12 (RB4) is open. Fix the `RB4/T1` net label in the
 next PCB revision.
 
+### Test C and MCC regeneration (same day)
+
+| Check | Result |
+|---|---|
+| Test C: test app writes the RAM request and software-resets when T2 is pressed while it runs | PASS: LED2 steady, `USB\VID_04D8&PID_003C` back, no RESET pressed |
+| `tools/mcc-patch/Apply-BootloaderPatches.ps1` on a copy reset to MCC-generated defaults | PASS: verifier went from 4 errors to PASS; second run changed nothing |
+| Same script on the working project | All settings already OK, no changes, verifier PASS |
+| `firmware/test_app/build.ps1` | Fixed: XC32's stderr "Info" line made Windows PowerShell 5.1 abort the build |
+
 Open items:
 
-- Test C: have an application write the RAM request pattern and reset; confirm
-  it returns to update mode. (The bootloader and test-app linker scripts both
-  reserve the area now.)
-- Make the same changes in MCC so a regenerate keeps them: clock `PRIPLL`/`HS`,
-  Product ID `0x003C`, `ICS_PGx2`, and the `btl.ld` RAM reservation (MCC does
-  not generate it; re-apply after Generate).
 - Fix the T1 net in the PCB design.
 - PICkit 4 program/verify (only the Snap was used).
 - Measure 3.3 V, VCAP, and the crystal frequency for the evidence list.
