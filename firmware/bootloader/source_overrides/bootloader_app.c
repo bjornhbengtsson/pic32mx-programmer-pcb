@@ -57,6 +57,11 @@ bool bootloader_Trigger(void)
 {
     volatile uint32_t delay;
 
+#if BOARD_BOOT_SWITCH_ENABLED
+    /* Configure the pin first so it has the settle delay below. */
+    BOARD_BOOT_SWITCH_INITIALIZE();
+#endif
+
     for (delay = 0U;
          delay < BOOTLOADER_TRIGGER_STARTUP_DELAY_CYCLES;
          ++delay)

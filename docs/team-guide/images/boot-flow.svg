@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" font-family="Segoe UI, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#444;stroke-width:1.5}
+      .q{fill:#fff8e1;stroke:#b8860b;stroke-width:1.5}
+      .boot{fill:#e3f2fd;stroke:#1565c0;stroke-width:2}
+      .app{fill:#e8f5e9;stroke:#2e7d32;stroke-width:2}
+      .l{stroke:#444;stroke-width:1.5;fill:none;marker-end:url(#a)}
+      .t{fill:#222}
+      .s{fill:#555;font-size:13px}
+      .h{font-weight:600}
+    </style>
+  </defs>
+  <rect width="760" height="470" fill="#fafafa"/>
+
+  <rect class="box" x="255" y="18" width="250" height="46" rx="8"/>
+  <text class="t h" x="380" y="40" text-anchor="middle">Board powers up or resets</text>
+  <text class="s" x="380" y="57" text-anchor="middle">plug in USB, or tap RESET (T3)</text>
+  <path class="l" d="M380,64 V92"/>
+
+  <rect class="q" x="230" y="94" width="300" height="46" rx="8"/>
+  <text class="t h" x="380" y="116" text-anchor="middle">Is button T2 held down?</text>
+  <text class="s" x="380" y="133" text-anchor="middle">(or did the app ask for an update?)</text>
+  <path class="l" d="M530,117 H640 V352"/>
+  <text class="t h" x="585" y="108" text-anchor="middle">Yes</text>
+  <path class="l" d="M380,140 V172"/>
+  <text class="t h" x="395" y="162">No</text>
+
+  <rect class="q" x="230" y="174" width="300" height="46" rx="8"/>
+  <text class="t h" x="380" y="196" text-anchor="middle">Is an app installed?</text>
+  <text class="s" x="380" y="213" text-anchor="middle">(app area at 0x9D008000 not blank)</text>
+  <path class="l" d="M530,197 H640"/>
+  <text class="t h" x="585" y="188" text-anchor="middle">No</text>
+  <path class="l" d="M380,220 V352"/>
+  <text class="t h" x="395" y="290">Yes</text>
+
+  <rect class="app" x="200" y="354" width="360" height="96" rx="10"/>
+  <text class="t h" x="380" y="380" text-anchor="middle">APP MODE: your program runs</text>
+  <text class="t" x="380" y="404" text-anchor="middle">Test app: LED1 and LED2 take turns blinking</text>
+  <text class="s" x="380" y="426" text-anchor="middle">The PC does not see a "bootloader" USB device</text>
+
+  <rect class="boot" x="565" y="354" width="180" height="96" rx="10"/>
+  <text class="t h" x="655" y="380" text-anchor="middle">UPDATE MODE</text>
+  <text class="t" x="655" y="404" text-anchor="middle">LED2 on, steady</text>
+  <text class="s" x="655" y="426" text-anchor="middle">PC sees USB 04D8:003C</text>
+  <text class="s" x="655" y="442" text-anchor="middle">Ready for Unified Host</text>
+</svg>

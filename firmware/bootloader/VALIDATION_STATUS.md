@@ -31,16 +31,16 @@ Do not tag this firmware as hardware-validated until all items below are complet
 - [x] Bootloader project generated for exact device (MCC, Harmony 3 bootloader v3.9.0)
 - [x] Bootloader XC32 production build passes (XC32 v5.10)
 - [x] Test application XC32 build passes (`firmware/test_app`, built with XC32 directly)
-- [ ] Static project verification passes: test app PASS; bootloader FAILS the 16-byte SRAM trigger reservation check (see open items)
+- [x] Static project verification passes (bootloader and test app)
 - [x] Both HEX layout checks pass
 - [ ] PICkit 4 program/verify passes (not tried)
 - [x] Snap program/verify passes
-- [ ] USB HID enumerates as `04D8:003C`: enumerates as `04D8:0000` (Product ID left blank in MCC)
+- [x] USB HID enumerates as `04D8:003C`
 - [x] Unified Host programs and verifies the test application
-- [ ] Test application runs after reset and power cycle: runs after programming; power cycle not yet recorded
-- [ ] RAM trigger returns to bootloader
-- [ ] Hardware switch trigger passes, when fitted
-- [ ] ICSP recovery passes
+- [x] Test application runs after reset and power cycle (USB unplugged and replugged)
+- [ ] RAM trigger returns to bootloader (both sides reserve the RAM; not yet tested with an app that requests it)
+- [x] Hardware switch trigger passes: **T2** (RB0) + RESET enters update mode. T1 cannot be used (see below).
+- [x] ICSP recovery passes: bootloader reflashed over an installed app, USB update mode returned
 
 ## Hardware bring-up results (2026-11-13)
 
@@ -73,13 +73,45 @@ Problems found and fixed during bring-up:
 4. **IPE GUI Snap power-page bug** and **Hold In Reset after programming**.
    Workarounds are in `PROGRAM_WITH_PICKIT4_OR_SNAP.md`.
 
+### Second bootloader build (same day)
+
+Changes: `bootloader_app.c` / `bootloader_board.h` from `source_overrides`
+(force-boot switch, RAM request trigger, LED2 status), PID `0x003C`, first 16
+bytes of SRAM reserved in `btl.ld`, `ICS_PGx2`. Image: IPE checksum `FF12BE4E`,
+now in `firmware/prebuilt/`.
+
+| Check | Result |
+|---|---|
+| `verify_project.py --bootloader` | PASS |
+| `hex_layout.py --mode bootloader` | PASS |
+| Host unit tests (RAM trigger + switch + LED) | PASS |
+| Program/verify through Snap (`ipecmd`) | PASS |
+| USB enumeration, blank app area | PASS: `USB\VID_04D8&PID_003C` |
+| Unified Host connection | PASS: `HID device PID: 3C Connected` |
+| USB upload of test app (with 16-byte RAM reservation) | PASS: `Disconnected after Programming was Successful.` LEDs alternate |
+| Test E: unplug/replug USB | PASS: app starts by itself |
+| Test D: hold T1 + tap RESET | **FAIL**: app keeps running (see hardware issue) |
+| Test D: hold T2 + tap RESET | PASS: LED2 steady, `PID_003C` back on USB |
+| Test F: reflash bootloader over an installed app | PASS: update mode returns |
+
+### Hardware issue: T1 is not connected to the MCU
+
+In the schematic netlist (exported PDF), the `RB4/T1` net contains only MCU
+pin 12 (RB4). The T1 switch, its R1 pull-up, R15 and MCP2561 pin 5 (SPLIT) form
+a separate net. So T1 never reaches the MCU and RB4 floats, and pressing T1
+pulls the CAN transceiver's SPLIT pin to ground. On hardware, holding T1 had no
+effect. The bootloader uses **T2 (RB0, pin 16)** instead, which is wired as
+expected (R2 pull-up). Fix the `RB4/T1` net label in the next PCB revision and
+confirm with a continuity check from T1 to pin 12.
+
 Open items:
 
-- Reserve the first 16 bytes of SRAM in the bootloader linker script, then run
-  Test C (application requests the bootloader).
-- Set USB Product ID `0x003C` in MCC.
-- Rebuild the bootloader with `ICS_PGx2` before debugging it in MPLAB X (the
-  image on the board has `ICS_PGx1`; programming is unaffected).
-- Map a force-boot button (T1 or T2) in `bootloader_board.h` and run Test D.
-- Record the power-cycle test (Test E) and ICSP recovery (Test F).
+- Test C: have an application write the RAM request pattern and reset; confirm
+  it returns to update mode. (The bootloader and test-app linker scripts both
+  reserve the area now.)
+- Make the same changes in MCC so a regenerate keeps them: clock `PRIPLL`/`HS`,
+  Product ID `0x003C`, `ICS_PGx2`, and the `btl.ld` RAM reservation (MCC does
+  not generate it; re-apply after Generate).
+- Fix the T1 net in the PCB design.
+- PICkit 4 program/verify (only the Snap was used).
 - Measure 3.3 V, VCAP, and the crystal frequency for the evidence list.
