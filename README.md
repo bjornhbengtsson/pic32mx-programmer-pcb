@@ -62,7 +62,7 @@ pic32mx-programmer-pcb/
 │   ├── team-guide/        ← Part 2: run and update the board over USB
 │   └── README.md
 ├── firmware/
-│   ├── bootloader/        USB HID bootloader docs, overrides, checks
+│   ├── bootloader/        USB HID bootloader: MPLAB X project (generated_projects/), docs, checks
 │   ├── test_app/          LED test app loaded over USB
 │   ├── prebuilt/          ready-to-flash .hex files
 │   └── README.md

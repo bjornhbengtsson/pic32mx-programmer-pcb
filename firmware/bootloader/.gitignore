@@ -13,3 +13,6 @@
 tests/.bootloader_app_host_test
 __pycache__/
 *.pyc
+
+# MPLAB X regenerates this with machine-specific paths
+**/nbproject/Makefile-genesis.properties
