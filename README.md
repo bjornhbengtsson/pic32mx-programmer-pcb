@@ -81,29 +81,6 @@ pic32mx-programmer-pcb/
 └── images/
 ```
 
-## Development Process
-
-1. Learn Altium Designer
-2. Create the schematic
-3. Select and verify components
-4. Complete the PCB layout
-5. Apply manufacturing design rules
-6. Generate fabrication and assembly files
-7. Assemble the PCB
-8. Perform electrical bring-up
-9. Flash and validate firmware
-10. Test USB bootloading and peripheral functions
-
-## Design Challenges
-
-- Mapping the MCU's 64 pins to the clamshell socket
-- Routing the USB differential pair
-- Maintaining mechanical clearance around the socket and headers
-- Applying signal-integrity-aware routing
-- Reducing Altium DRC violations
-- Meeting PCB fabrication constraints
-- Planning repeatable firmware and hardware validation
-
 ## Validation Status
 
 ### Completed
