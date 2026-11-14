@@ -23,6 +23,7 @@ cf63785773a5f739884f023bf1843a71e8316df1bf70ba26dc3629bbeadf0a6e  bootloader_plu
 
 ## Bootloader image
 
+- Source: [`firmware/bootloader/generated_projects/`](../bootloader/generated_projects/).
 - Harmony 3 USB Device HID bootloader generated with MCC for PIC32MX534F064H,
   built with XC32 v5.10, PIC32MX_DFP 1.6.369, plus
   `firmware/bootloader/source_overrides/bootloader_app.c` and
